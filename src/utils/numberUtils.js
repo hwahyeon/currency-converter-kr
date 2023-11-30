@@ -64,11 +64,14 @@ export function totalNumberAddition(list) {
     const lastChar = item[item.length - 1]; // 항목의 마지막 글자
 
     switch (lastChar) {
+      case "조":
+        addition += item === "조" ? 1000000000000 : convertKoreanNumber(item.slice(0, -1)) * 100000000;
+        break;
       case "억":
-        addition += convertKoreanNumber(item.slice(0, -1)) * 100000000;
+        addition += item === "억" ? 100000000 : convertKoreanNumber(item.slice(0, -1)) * 100000000;
         break;
       case "만":
-        addition += convertKoreanNumber(item.slice(0, -1)) * 10000;
+        addition += item === "만" ? 10000 : convertKoreanNumber(item.slice(0, -1)) * 10000;
         break;
       default:
         addition += convertKoreanNumber(item);
