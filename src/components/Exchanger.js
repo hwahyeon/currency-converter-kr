@@ -10,13 +10,16 @@ import "../styles/Exchanger.scss";
 
 function Exchanger() {
   const [krw, setKrw] = useState("");
-  const [selectedCurrency, setSelectedCurrency] = useState("eur");
+  const [selectedCurrency, setSelectedCurrency] = useState({
+    value: "usd",
+    text: "미국 달러 (USD)"
+  });
 
   const handleCurrencyChange = (e) => {
     setSelectedCurrency(e.target.value);
   };
 
-  const { currencyToKrw, isLoading, error } = useExchangeRate(selectedCurrency);
+  const { currencyToKrw, isLoading, error } = useExchangeRate(selectedCurrency.value);
 
   const handleInputChange = (e) => {
     setKrw(e.target.value);
@@ -58,12 +61,11 @@ function Exchanger() {
         <option value="nzd">뉴질랜드 달러 (NZD)</option>
       </select>
       <div className="info">
-        오늘 1{selectedCurrency}는 {currencyToKrw.toFixed(2)}원입니다.
+        오늘 1{selectedCurrency.text}(은)는 {currencyToKrw.toFixed(2)}원입니다.
       </div>
-      <div className="result">혹시 {refine}원을 의미하셨나요?</div>
+      <div className="result">혹시 {refine.toLocaleString()}원을 의미하셨나요?</div>
       <div className="result">
-        {refine}원은 {selectedCurrency}
-        {(refine / currencyToKrw).toFixed(2)}입니다.
+        {refine.toLocaleString()}원은 {Number((refine / currencyToKrw).toFixed(2)).toLocaleString()} {selectedCurrency.text}입니다.
       </div>
       <div className="footer-info">
         <p>
