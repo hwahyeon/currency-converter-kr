@@ -6,6 +6,7 @@ import {
   removeNonNumericWords,
 } from "../utils/numberUtils";
 import { useExchangeRate } from "../hooks/useExchangeRate";
+import '../styles/Exchanger.scss';
 
 function Exchanger() {
   const [krw, setKrw] = useState("");
@@ -30,16 +31,18 @@ function Exchanger() {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div>
+    <div className="exchanger">
+      <header>원화 계산기</header>
       <input
+        className="currency-input"
         placeholder="바꾸려는 원화를 써주십시오"
         value={krw}
         onChange={handleInputChange}
       />
-      <div>억 단위까지 계산할 수 있습니다.</div>
-      <div>혹시 {refine}원을 의미하셨나요?</div>
-      <div>오늘 1유로는 {euroToKrw.toFixed(3)}원입니다.</div>
-      <div>
+      <div className="info">억 단위까지 계산할 수 있습니다.</div>
+      <div className="result">혹시 {refine}원을 의미하셨나요?</div>
+      <div className="info">오늘 1유로는 {euroToKrw.toFixed(3)}원입니다.</div>
+      <div className="result">
         {refine}원은 {(refine / euroToKrw).toFixed(3)}Euro입니다!
       </div>
     </div>
