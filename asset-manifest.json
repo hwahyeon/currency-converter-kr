@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/reactjs-exchange-forkorean/static/js/main.9cf75b95.js",
+    "main.css": "/reactjs-exchange-forkorean/static/css/main.033053e1.css",
+    "main.js": "/reactjs-exchange-forkorean/static/js/main.f8d89640.js",
     "index.html": "/reactjs-exchange-forkorean/index.html",
-    "main.9cf75b95.js.map": "/reactjs-exchange-forkorean/static/js/main.9cf75b95.js.map"
+    "main.033053e1.css.map": "/reactjs-exchange-forkorean/static/css/main.033053e1.css.map",
+    "main.f8d89640.js.map": "/reactjs-exchange-forkorean/static/js/main.f8d89640.js.map"
   },
   "entrypoints": [
-    "static/js/main.9cf75b95.js"
+    "static/css/main.033053e1.css",
+    "static/js/main.f8d89640.js"
   ]
 }
