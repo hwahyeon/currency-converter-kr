@@ -7,19 +7,26 @@ import {
 } from "../utils/numberUtils";
 import { useExchangeRate } from "../hooks/useExchangeRate";
 import "../styles/Exchanger.scss";
+import Chart from "./Chart"
 
 function Exchanger() {
   const [krw, setKrw] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState({
-    value: "usd",
-    text: "미국 달러 (USD)"
+    value: "eur",
+    text: "유로 (EUR)",
   });
 
   const handleCurrencyChange = (e) => {
-    setSelectedCurrency(e.target.value);
+    const selectedIndex = e.target.options.selectedIndex;
+    setSelectedCurrency({
+      value: e.target.value,
+      text: e.target.options[selectedIndex].text
+    });
   };
 
-  const { currencyToKrw, isLoading, error } = useExchangeRate(selectedCurrency.value);
+  const { currencyToKrw, isLoading, error } = useExchangeRate(
+    selectedCurrency.value
+  );
 
   const handleInputChange = (e) => {
     setKrw(e.target.value);
@@ -49,8 +56,8 @@ function Exchanger() {
         onChange={handleInputChange}
       />
       <select value={selectedCurrency} onChange={handleCurrencyChange}>
-        <option value="usd">미국 달러 (USD)</option>
         <option value="eur">유로 (EUR)</option>
+        <option value="usd">미국 달러 (USD)</option>
         <option value="jpy">일본 엔 (JPY)</option>
         <option value="gbp">영국 파운드 (GBP)</option>
         <option value="aud">호주 달러 (AUD)</option>
@@ -63,23 +70,25 @@ function Exchanger() {
       <div className="info">
         오늘 1{selectedCurrency.text}(은)는 {currencyToKrw.toFixed(2)}원입니다.
       </div>
-      <div className="result">혹시 {refine.toLocaleString()}원을 의미하셨나요?</div>
+      {/* <div className="result">혹시 {refine.toLocaleString()}원을 의미하셨나요?</div> */}
       <div className="result">
-        {refine.toLocaleString()}원은 {Number((refine / currencyToKrw).toFixed(2)).toLocaleString()} {selectedCurrency.text}입니다.
+        {refine.toLocaleString()}원은{" "}
+        {Number((refine / currencyToKrw).toFixed(2)).toLocaleString()}
+        {selectedCurrency.text}입니다.
       </div>
       <div className="footer-info">
         <p>
-          일십백천만...하며 0을 세던 날은 잊으세요! 조 단위까지의 한글 숫자 표기를 지원합니다. 예를
-          들어, 아래의 표기법 모두 사용할 수 있습니다:
+          일십백천만...하며 0을 세던 날은 잊으세요! 조 단위까지의 한글 숫자
+          표기를 지원합니다. 예를 들어, 아래의 표기법 모두 사용할 수 있습니다:
         </p>
         <ul>
-          <li>2억 오천만</li>
           <li>삼십만원</li>
           <li>7십팔만 육천원</li>
-          <li>29만원</li>
           <li>950000</li>
         </ul>
+        <p>입력만 하세요!</p>
       </div>
+      {/* <Chart /> */}
     </div>
   );
 }
