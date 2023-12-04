@@ -55,7 +55,7 @@ function Exchanger() {
         value={krw}
         onChange={handleInputChange}
       />
-      <select value={selectedCurrency} onChange={handleCurrencyChange}>
+      <select value={selectedCurrency.value} onChange={handleCurrencyChange}>
         <option value="eur">유로 (EUR)</option>
         <option value="usd">미국 달러 (USD)</option>
         <option value="jpy">일본 엔 (JPY)</option>
