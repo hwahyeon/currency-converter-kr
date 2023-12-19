@@ -7,7 +7,7 @@ import { useState } from "react";
 // } from "../utils/numberUtils";
 import { useExchangeRate } from "../hooks/useExchangeRate";
 import "../styles/Exchanger.scss";
-import korNum from 'korean-numeric'
+import korNum from "korean-numeric";
 // import Chart from "./Chart"
 
 function Exchanger() {
@@ -16,19 +16,31 @@ function Exchanger() {
     value: "eur",
     text: "유로 (EUR)",
   });
+  const [toCurrency, setToCurrency] = useState({
+    value: "krw",
+    text: "대한민국 원 (KRW)",
+  })
 
-  const handleCurrencyChange = (e) => {
+  const handleSelectedCurrencyChange = (e) => {
     const selectedIndex = e.target.options.selectedIndex;
     setSelectedCurrency({
       value: e.target.value,
-      text: e.target.options[selectedIndex].text
+      text: e.target.options[selectedIndex].text,
+    });
+  };
+
+  const handleToCurrencyChange = (e) => {
+    const selectedIndex = e.target.options.selectedIndex;
+    setToCurrency({
+      value: e.target.value,
+      text: e.target.options[selectedIndex].text,
     });
   };
 
   const { currencyToKrw, isLoading, error } = useExchangeRate(
-    selectedCurrency.value
+    selectedCurrency.value, toCurrency
   );
-  
+
   const handleInputChange = (e) => {
     setKrw(e.target.value);
   };
@@ -52,27 +64,60 @@ function Exchanger() {
 
   return (
     <div className="exchanger">
-      <header>원화 계산기</header>
-      <input
-        className="currency-input"
-        placeholder="바꾸려는 원화를 써주십시오"
-        value={krw}
-        onChange={handleInputChange}
-      />
-      <select value={selectedCurrency.value} onChange={handleCurrencyChange}>
-        <option value="eur">유로 (EUR)</option>
-        <option value="usd">미국 달러 (USD)</option>
-        <option value="jpy">일본 엔 (JPY)</option>
-        <option value="gbp">영국 파운드 (GBP)</option>
-        <option value="aud">호주 달러 (AUD)</option>
-        <option value="cad">캐나다 달러 (CAD)</option>
-        <option value="chf">스위스 프랑 (CHF)</option>
-        <option value="vnd">베트남 동 (VND)</option>
-        <option value="sek">스웨덴 크로나 (SEK)</option>
-        <option value="nzd">뉴질랜드 달러 (NZD)</option>
-      </select>
+      <header>환율 계산기</header>
+      <div className="input-group">
+        <select
+          className="currency-select"
+          value={selectedCurrency.value}
+          onChange={handleSelectedCurrencyChange}
+        >
+          <option value="krw">대한민국 원 (KRW)</option>
+          <option value="eur">유로 (EUR)</option>
+          <option value="usd">미국 달러 (USD)</option>
+          <option value="jpy">일본 엔 (JPY)</option>
+          <option value="gbp">영국 파운드 (GBP)</option>
+          <option value="aud">호주 달러 (AUD)</option>
+          <option value="cad">캐나다 달러 (CAD)</option>
+          <option value="chf">스위스 프랑 (CHF)</option>
+          <option value="vnd">베트남 동 (VND)</option>
+          <option value="sek">스웨덴 크로나 (SEK)</option>
+          <option value="nzd">뉴질랜드 달러 (NZD)</option>
+        </select>
+        <input
+          className="currency-input"
+          placeholder="바꾸려는 원화를 써주십시오"
+          value={krw}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="input-group">
+        <select
+          className="currency-select"
+          value={toCurrency.value}
+          onChange={handleToCurrencyChange}
+        >
+          <option value="krw">대한민국 원 (KRW)</option>
+          <option value="eur">유로 (EUR)</option>
+          <option value="usd">미국 달러 (USD)</option>
+          <option value="jpy">일본 엔 (JPY)</option>
+          <option value="gbp">영국 파운드 (GBP)</option>
+          <option value="aud">호주 달러 (AUD)</option>
+          <option value="cad">캐나다 달러 (CAD)</option>
+          <option value="chf">스위스 프랑 (CHF)</option>
+          <option value="vnd">베트남 동 (VND)</option>
+          <option value="sek">스웨덴 크로나 (SEK)</option>
+          <option value="nzd">뉴질랜드 달러 (NZD)</option>
+        </select>
+        <input
+          className="currency-input"
+          placeholder="바꾸려는 원화를 써주십시오"
+          value={krw}
+          onChange={handleInputChange}
+        />
+      </div>
+
       <div className="info">
-        오늘 1{selectedCurrency.text}(은)는 {currencyToKrw.toFixed(2)}원입니다.
+        오늘 1 {selectedCurrency.text}(은)는 {currencyToKrw.toFixed(2)} {toCurrency.text}입니다.
       </div>
       {/* <div className="result">혹시 {refine.toLocaleString()}원을 의미하셨나요?</div> */}
       <div className="result">
