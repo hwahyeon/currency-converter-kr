@@ -1,13 +1,14 @@
 import { useState } from "react";
-import {
-  totalNumberAddition,
-  splitKoreanNumber,
-  replaceKoreanNumbers,
-  removeNonNumericWords,
-} from "../utils/numberUtils";
+// import {
+//   totalNumberAddition,
+//   splitKoreanNumber,
+//   replaceKoreanNumbers,
+//   removeNonNumericWords,
+// } from "../utils/numberUtils";
 import { useExchangeRate } from "../hooks/useExchangeRate";
 import "../styles/Exchanger.scss";
-import Chart from "./Chart"
+import korNum from 'korean-numeric'
+// import Chart from "./Chart"
 
 function Exchanger() {
   const [krw, setKrw] = useState("");
@@ -27,16 +28,19 @@ function Exchanger() {
   const { currencyToKrw, isLoading, error } = useExchangeRate(
     selectedCurrency.value
   );
-
+  
   const handleInputChange = (e) => {
     setKrw(e.target.value);
   };
 
   const calculateRefinedValue = () => {
+    // if (krw) {
+    //   return totalNumberAddition(
+    //     splitKoreanNumber(replaceKoreanNumbers(removeNonNumericWords(krw)))
+    //   );
+    // }
     if (krw) {
-      return totalNumberAddition(
-        splitKoreanNumber(replaceKoreanNumbers(removeNonNumericWords(krw)))
-      );
+      return korNum.tonumber(krw);
     }
     return 0;
   };
