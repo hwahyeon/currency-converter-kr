@@ -25,10 +25,10 @@ Give it a shot!
 
 ## Release Notes
 ### Version 2.1.0 (Updated on Jan 27, 2024)
-- English Language Support: Now the app is also available in English.
+- **English Language Support**: Now the app is also available in English.
 ### Version 2.0.0 (Updated on Jan 26, 2024)
-- Expanded Currency Conversion: In addition to converting from Korean Won to other currencies, users can now convert between various other currencies.
+- **Expanded Currency Conversion**: In addition to converting from Korean Won to other currencies, users can now convert between various other currencies.
 ### Version 1.0.1 (Updated on Nov 8, 2023)
-- NPM Package Release: A component of the app, the feature converting Korean-style numerals to Arabic numerals, has been seperated and released as an NPM package.
+- **NPM Package Release ([korean-numeric](https://www.npmjs.com/package/korean-numeric))**: A component of the app, the feature converting Korean-style numerals to Arabic numerals, has been seperated and released as an NPM package. 
 ### Version 1.0.0 (Updated on Dec 19, 2023)
-- Korean Style Number Input: Users can input numbers in various Korean formats, and the app accurately interprets and processes them for currency conversion.
+- **Korean Style Number Input**: Users can input numbers in various Korean formats, and the app accurately interprets and processes them for currency conversion.
