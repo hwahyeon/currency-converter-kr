@@ -34,6 +34,8 @@ function Exchanger() {
       value: e.target.value,
       text: e.target.options[selectedIndex].text,
     });
+    setSelectedPrice(0);
+    setToPrice(0);
   };
 
   const handleToCurrencyChange = (e) => {
@@ -42,6 +44,8 @@ function Exchanger() {
       value: e.target.value,
       text: e.target.options[selectedIndex].text,
     });
+    setSelectedPrice(0);
+    setToPrice(0);
   };
 
   const { currencyToCurrency, isLoading, error } = useExchangeRate(
