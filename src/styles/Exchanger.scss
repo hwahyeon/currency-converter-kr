@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+
 .exchanger {
-  font-family: "Arial", sans-serif;
+  font-family: "Orbit", sans-serif;
   color: #333;
   max-width: 500px;
+  // width: 320px;
   margin: 20px auto;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -15,14 +18,36 @@
     color: #2d89ef;
   }
 
-  .currency-input,
-  select {
-    width: 100%;
-    padding: 10px 15px;
+  // input 그룹
+  .input-group {
+    display: flex;
+    align-items: center;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+
+    select {
+      flex-shrink: 0; // select의 크기가 줄어들지 않도록 설정
+      padding: 10px 11px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      background-color: #f8f8f8;
+      margin: 0;
+      appearance: none; // 네이티브 스타일 제거
+    }
+
+    .currency-input {
+      flex-grow: 1; // input이 남은 공간을 모두 차지하도록 설정
+      padding: 10px 13px;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      width: 100%;
+
+      &:focus {
+        outline: none; // 포커스 시 외곽선 제거
+      }
+    }
   }
 
   .info,
