@@ -6,20 +6,26 @@ import { useState } from "react";
 //   removeNonNumericWords,
 // } from "../utils/numberUtils";
 import { useExchangeRate } from "../hooks/useExchangeRate";
-import "../styles/Exchanger.scss";
+import { ko } from "../lang/ko.js";
+import { en } from "../lang/en.js";
+import "../styles/_Exchanger.scss";
 import korNum from "korean-numeric";
+import LangButton from "./LangButton.js";
 
 function Exchanger() {
   const [selectedPrice, setSelectedPrice] = useState(1);
   const [toPrice, setToPrice] = useState(1);
 
+  const currentLanguage = localStorage.getItem("language");
+  const lang = currentLanguage === "ko" ? ko : en;
+
   const [selectedCurrency, setSelectedCurrency] = useState({
     value: "eur",
-    text: "유로 (EUR)",
+    text: lang.option.eur,
   });
   const [toCurrency, setToCurrency] = useState({
     value: "krw",
-    text: "대한민국 원 (KRW)",
+    text: lang.option.krw,
   });
 
   const handleSelectedCurrencyChange = (e) => {
@@ -52,7 +58,9 @@ function Exchanger() {
   const handleInputToChange = (e) => {
     const v = koreanNumer(e.target.value);
     setToPrice(v);
-    setSelectedPrice(((1 / currencyToCurrency) * korNum.tonumber(v)).toFixed(3));
+    setSelectedPrice(
+      ((1 / currencyToCurrency) * korNum.tonumber(v)).toFixed(3)
+    );
   };
 
   function koreanNumer(e) {
@@ -67,28 +75,29 @@ function Exchanger() {
 
   return (
     <div className="exchanger">
-      <header>환율 계산기</header>
+      <header>{lang.header}</header>
+      <LangButton />
       <div className="input-group">
         <select
           className="currency-select"
           value={selectedCurrency.value}
           onChange={handleSelectedCurrencyChange}
         >
-          <option value="krw">대한민국 원 (KRW)</option>
-          <option value="eur">유로 (EUR)</option>
-          <option value="usd">미국 달러 (USD)</option>
-          <option value="jpy">일본 엔 (JPY)</option>
-          <option value="gbp">영국 파운드 (GBP)</option>
-          <option value="aud">호주 달러 (AUD)</option>
-          <option value="cad">캐나다 달러 (CAD)</option>
-          <option value="chf">스위스 프랑 (CHF)</option>
-          <option value="vnd">베트남 동 (VND)</option>
-          <option value="sek">스웨덴 크로나 (SEK)</option>
-          <option value="nzd">뉴질랜드 달러 (NZD)</option>
+          <option value="krw">{lang.option.krw}</option>
+          <option value="eur">{lang.option.eur}</option>
+          <option value="usd">{lang.option.usd}</option>
+          <option value="jpy">{lang.option.jpy}</option>
+          <option value="gbp">{lang.option.gbp}</option>
+          <option value="aud">{lang.option.aud}</option>
+          <option value="cad">{lang.option.cad}</option>
+          <option value="chf">{lang.option.chf}</option>
+          <option value="vnd">{lang.option.vnd}</option>
+          <option value="sek">{lang.option.sek}</option>
+          <option value="nzd">{lang.option.nzd}</option>
         </select>
         <input
           className="currency-input"
-          placeholder="숫자를 입력해주세요"
+          placeholder={lang.placeholder}
           value={selectedPrice}
           onChange={handleInputSelectedChange}
         />
@@ -99,42 +108,39 @@ function Exchanger() {
           value={toCurrency.value}
           onChange={handleToCurrencyChange}
         >
-          <option value="krw">대한민국 원 (KRW)</option>
-          <option value="eur">유로 (EUR)</option>
-          <option value="usd">미국 달러 (USD)</option>
-          <option value="jpy">일본 엔 (JPY)</option>
-          <option value="gbp">영국 파운드 (GBP)</option>
-          <option value="aud">호주 달러 (AUD)</option>
-          <option value="cad">캐나다 달러 (CAD)</option>
-          <option value="chf">스위스 프랑 (CHF)</option>
-          <option value="vnd">베트남 동 (VND)</option>
-          <option value="sek">스웨덴 크로나 (SEK)</option>
-          <option value="nzd">뉴질랜드 달러 (NZD)</option>
+          <option value="krw">{lang.option.krw}</option>
+          <option value="eur">{lang.option.eur}</option>
+          <option value="usd">{lang.option.usd}</option>
+          <option value="jpy">{lang.option.jpy}</option>
+          <option value="gbp">{lang.option.gbp}</option>
+          <option value="aud">{lang.option.aud}</option>
+          <option value="cad">{lang.option.cad}</option>
+          <option value="chf">{lang.option.chf}</option>
+          <option value="vnd">{lang.option.vnd}</option>
+          <option value="sek">{lang.option.sek}</option>
+          <option value="nzd">{lang.option.nzd}</option>
         </select>
         <input
           className="currency-input"
-          placeholder="숫자를 입력해주세요"
+          placeholder={lang.placeholder}
           value={toPrice}
           onChange={handleInputToChange}
         />
       </div>
 
       <div className="info">
-        오늘 1 {selectedCurrency.text}(은)는 {currencyToCurrency.toFixed(3)}{" "}
-        {toCurrency.text}입니다.
+        {lang.today_price.today} 1 {selectedCurrency.text}{lang.today_price.is} {currencyToCurrency.toFixed(3)}{" "}
+        {toCurrency.text}{lang.today_price.end}.
       </div>
       {/* <div className="result">혹시 {refine.toLocaleString()}원을 의미하셨나요?</div> */}
       <div className="footer-info">
-        <p>
-          일십백천만...하며 0을 세던 날은 잊으세요! 조 단위까지의 한글 숫자
-          표기를 지원합니다. 예를 들어, 아래의 표기법 모두 사용할 수 있습니다:
-        </p>
+        <p>{lang.info1}</p>
         <ul>
           <li>삼십만원</li>
           <li>7십팔만 육천원</li>
           <li>950000</li>
         </ul>
-        <p>입력만 하세요!</p>
+        <p>{lang.info2}</p>
       </div>
       {/* <Chart /> */}
     </div>
