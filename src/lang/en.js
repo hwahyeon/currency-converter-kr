@@ -23,8 +23,8 @@ export const en = {
     "Forget the days of counting units like 일, 십, 백, 천, 만...! This app supports Korean numerical notation up to 조 (trillion). For example, you can use any of the following notations:",
   example: (
     <ul>
-      <li>삼십만원</li>
-      <li>7십팔만 육천원</li>
+      <li>삼십만</li>
+      <li>7십팔만 육천</li>
       <li>950000</li>
     </ul>
   ),
