@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 
-export function useExchangeRate(selectedCurrency) {
-  const [currencyToKrw, setCurrencyToKrw] = useState(0);
+export function useExchangeRate(selectedCurrency, toCurrency) {
+  const [currencyToCurrency, setCurrencyToCurrency] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const KRW = 'krw';
-
   useEffect(() => {
-    const fetchExchangeRate = async (selectedCurrency, toCurrency = KRW, setRate) => {
+    const fetchExchangeRate = async (selectedCurrency, toCurrency, setRate) => {
       try {
         const response = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${selectedCurrency}/${toCurrency}.min.json`);
         if (!response.ok) {
@@ -22,9 +20,9 @@ export function useExchangeRate(selectedCurrency) {
     };
 
     setIsLoading(true);
-    fetchExchangeRate(selectedCurrency, KRW, setCurrencyToKrw);
+    fetchExchangeRate(selectedCurrency, toCurrency, setCurrencyToCurrency);
     setIsLoading(false);
-  }, [selectedCurrency]);
+  }, [selectedCurrency, toCurrency]);
 
-  return { currencyToKrw, isLoading, error };
+  return { currencyToCurrency, isLoading, error };
 }
