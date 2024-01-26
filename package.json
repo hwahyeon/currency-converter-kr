@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "^3.44.0",
     "gh-pages": "^6.1.0",
-    "korean-numeric": "^1.0.2",
+    "korean-numeric": "^1.1.0",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
