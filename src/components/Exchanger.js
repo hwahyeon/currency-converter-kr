@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import {
 //   totalNumberAddition,
 //   splitKoreanNumber,
@@ -13,8 +13,8 @@ import korNum from "korean-numeric";
 import LangButton from "./LangButton.js";
 
 function Exchanger() {
-  const [selectedPrice, setSelectedPrice] = useState(1);
-  const [toPrice, setToPrice] = useState(1);
+  const [selectedPrice, setSelectedPrice] = useState(0);
+  const [toPrice, setToPrice] = useState(0);
 
   const currentLanguage = localStorage.getItem("language");
   const lang = currentLanguage === "ko" ? ko : en;
@@ -129,8 +129,9 @@ function Exchanger() {
       </div>
 
       <div className="info">
-        {lang.today_price.today} 1 {selectedCurrency.text}{lang.today_price.is} {currencyToCurrency.toFixed(3)}{" "}
-        {toCurrency.text}{lang.today_price.end}.
+        {lang.today_price.today} 1 {selectedCurrency.text}
+        {lang.today_price.is} {currencyToCurrency.toFixed(3)} {toCurrency.text}
+        {lang.today_price.end}.
       </div>
       {/* <div className="result">혹시 {refine.toLocaleString()}원을 의미하셨나요?</div> */}
       <div className="footer-info">
@@ -139,6 +140,7 @@ function Exchanger() {
           <li>삼십만원</li>
           <li>7십팔만 육천원</li>
           <li>950000</li>
+          <li>15점77</li>
         </ul>
         <p>{lang.info2}</p>
       </div>

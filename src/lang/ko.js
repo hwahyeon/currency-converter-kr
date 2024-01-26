@@ -26,6 +26,7 @@ export const ko = {
       <li>삼십만</li>
       <li>7십팔만 육천</li>
       <li>950000</li>
+      <li>15점77</li>
     </ul>
   ),
   info2: "입력만 하세요!",

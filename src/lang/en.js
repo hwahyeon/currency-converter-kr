@@ -26,6 +26,7 @@ export const en = {
       <li>삼십만</li>
       <li>7십팔만 육천</li>
       <li>950000</li>
+      <li>15점77</li>
     </ul>
   ),
   info2: "Give it a shot!",
