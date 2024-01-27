@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import {
 //   totalNumberAddition,
 //   splitKoreanNumber,
@@ -148,7 +148,6 @@ function Exchanger() {
         </ul>
         <p>{lang.info2}</p>
       </div>
-      {/* <Chart /> */}
     </div>
   );
 }
