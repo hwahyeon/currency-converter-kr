@@ -1,5 +1,5 @@
 export const en = {
-  header: "Currency Exchanger",
+  header: "Currency Converter",
   option: {
     krw: "South Korean Won (KRW)",
     eur: "Euro (EUR)",
