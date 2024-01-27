@@ -1,4 +1,4 @@
-# Currency Converter for Korean Number
+# Currency Converter for Korean Numbers
 
 ## Overview
 This web application is designed to assist to calculate currency conversions using Korean-style numbers. It accepts numbers expressed in colloquial Korean, a mix of Korean and Arabic numerals, and even decimal points written in Korean.
