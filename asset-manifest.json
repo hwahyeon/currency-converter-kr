@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/reactjs-exchange-forkorean/static/css/main.6fd00d8f.css",
-    "main.js": "/reactjs-exchange-forkorean/static/js/main.82e8c48e.js",
-    "index.html": "/reactjs-exchange-forkorean/index.html",
-    "main.6fd00d8f.css.map": "/reactjs-exchange-forkorean/static/css/main.6fd00d8f.css.map",
-    "main.82e8c48e.js.map": "/reactjs-exchange-forkorean/static/js/main.82e8c48e.js.map"
+    "main.css": "/currency-converter-kr/static/css/main.6fd00d8f.css",
+    "main.js": "/currency-converter-kr/static/js/main.82e8c48e.js",
+    "index.html": "/currency-converter-kr/index.html",
+    "main.6fd00d8f.css.map": "/currency-converter-kr/static/css/main.6fd00d8f.css.map",
+    "main.82e8c48e.js.map": "/currency-converter-kr/static/js/main.82e8c48e.js.map"
   },
   "entrypoints": [
     "static/css/main.6fd00d8f.css",
