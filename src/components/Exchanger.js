@@ -56,14 +56,20 @@ function Exchanger() {
   const handleInputSelectedChange = (e) => {
     const v = koreanNumer(e.target.value);
     setSelectedPrice(v);
-    setToPrice((korNum.tonumber(v) * currencyToCurrency).toFixed(3));
+    setToPrice(
+      Number(
+        (korNum.tonumber(v) * currencyToCurrency).toFixed(2)
+      ).toLocaleString()
+    );
   };
 
   const handleInputToChange = (e) => {
     const v = koreanNumer(e.target.value);
     setToPrice(v);
     setSelectedPrice(
-      ((1 / currencyToCurrency) * korNum.tonumber(v)).toFixed(3)
+      Number(
+        ((1 / currencyToCurrency) * korNum.tonumber(v)).toFixed(2)
+      ).toLocaleString()
     );
   };
 
