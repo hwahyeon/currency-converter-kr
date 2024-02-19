@@ -12,7 +12,7 @@ Forget the days of counting units like 일, 십, 백, 천, 만...! This app supp
   
 Give it a shot!
 
-**[Start](https://hwahyeon.github.io/reactjs-exchange-forkorean/)**
+**[Start](https://hwahyeon.github.io/currency-converter-kr/)**
 
 
 
