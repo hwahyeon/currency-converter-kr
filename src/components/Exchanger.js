@@ -83,6 +83,41 @@ function Exchanger() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
+  function numberKoreanIndicate(num) {
+    const units = ["", "만", "억", "조", "경", "해"];
+
+    if (num === 0) return "0";
+
+    let result = "";
+    let unitIndex = 0;
+    let fractionalPart = "";
+
+    // 처리할 정수와 소수 부분 분류
+    let integerPart = Math.floor(num);
+    let decimalPart = num % 1;
+
+    while (integerPart > 0) {
+      let part = integerPart % 10000;
+      integerPart = Math.floor(integerPart / 10000);
+
+      if (part > 0) {
+        let partStr = part.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if (unitIndex > 0) {
+          partStr += units[unitIndex];
+        }
+        result = partStr + " " + result;
+      }
+      unitIndex++;
+    }
+
+    // 소수 부분
+    if (decimalPart > 0) {
+      fractionalPart = decimalPart.toFixed(2).toString().substring(1);
+    }
+
+    return (result.trim() + fractionalPart).trim();
+  }
+
   return (
     <div className="exchanger">
       <header>{lang.header}</header>
@@ -112,7 +147,11 @@ function Exchanger() {
             value={selectedPrice}
             onChange={handleInputSelectedChange}
           />
-          <div>{selectedPrice === "" ? 0 : selectedPrice}</div>
+          <div>
+            {selectedPrice === ""
+              ? 0
+              : numberKoreanIndicate(korNum.tonumber(selectedPrice))}
+          </div>
         </div>
       </div>
       <div className="input-group">
@@ -140,7 +179,11 @@ function Exchanger() {
             value={toPrice}
             onChange={handleInputToChange}
           />
-          <div>{toPrice === "" ? 0 : toPrice}</div>
+          <div>
+            {toPrice === ""
+              ? 0
+              : numberKoreanIndicate(korNum.tonumber(toPrice))}
+          </div>
         </div>
       </div>
 
