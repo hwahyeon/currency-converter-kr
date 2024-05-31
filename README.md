@@ -24,6 +24,8 @@ Give it a shot!
 
 
 ## Release Notes
+### Version 2.2.0 (Updated on May 31, 2024)
+- **Korean Numeral Support**:  Added support for displaying exchange rate results in Korean numeral format (10,000 units).
 ### Version 2.1.0 (Updated on Jan 27, 2024)
 - **English Language Support**: Now the app is also available in English.
 ### Version 2.0.0 (Updated on Jan 26, 2024)
