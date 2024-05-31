@@ -83,7 +83,7 @@ function Exchanger() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  function numberKoreanIndicate(num) {
+  function koreanNumberIndicate(num) {
     const units = ["", "만", "억", "조", "경", "해"];
 
     if (num === 0) return "0";
@@ -150,7 +150,7 @@ function Exchanger() {
           <div>
             {selectedPrice === ""
               ? 0
-              : numberKoreanIndicate(korNum.tonumber(selectedPrice))}
+              : koreanNumberIndicate(korNum.tonumber(selectedPrice))}
           </div>
         </div>
       </div>
@@ -182,7 +182,7 @@ function Exchanger() {
           <div>
             {toPrice === ""
               ? 0
-              : numberKoreanIndicate(korNum.tonumber(toPrice))}
+              : koreanNumberIndicate(korNum.tonumber(toPrice))}
           </div>
         </div>
       </div>
