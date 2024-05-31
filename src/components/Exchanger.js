@@ -105,12 +105,15 @@ function Exchanger() {
           <option value="sek">{lang.option.sek}</option>
           <option value="nzd">{lang.option.nzd}</option>
         </select>
-        <input
-          className="currency-input"
-          placeholder={lang.placeholder}
-          value={selectedPrice}
-          onChange={handleInputSelectedChange}
-        />
+        <div className="currency-data">
+          <input
+            className="currency-input"
+            placeholder={lang.placeholder}
+            value={selectedPrice}
+            onChange={handleInputSelectedChange}
+          />
+          <div>{selectedPrice === "" ? 0 : selectedPrice}</div>
+        </div>
       </div>
       <div className="input-group">
         <select
@@ -130,12 +133,15 @@ function Exchanger() {
           <option value="sek">{lang.option.sek}</option>
           <option value="nzd">{lang.option.nzd}</option>
         </select>
-        <input
-          className="currency-input"
-          placeholder={lang.placeholder}
-          value={toPrice}
-          onChange={handleInputToChange}
-        />
+        <div className="currency-data">
+          <input
+            className="currency-input"
+            placeholder={lang.placeholder}
+            value={toPrice}
+            onChange={handleInputToChange}
+          />
+          <div>{toPrice === "" ? 0 : toPrice}</div>
+        </div>
       </div>
 
       <div className="info">

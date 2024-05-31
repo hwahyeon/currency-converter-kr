@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbit&display=swap");
 
 .exchanger {
   font-family: "Orbit", sans-serif;
@@ -37,12 +37,22 @@
       appearance: none; // 네이티브 스타일 제거
     }
 
-    .currency-input {
+    .currency-data {
       flex-grow: 1; // input이 남은 공간을 모두 차지하도록 설정
       padding: 10px 13px;
       border: none;
       border-radius: 0 4px 4px 0;
       width: 100%;
+      font-size: 14px;
+      text-align: right;
+
+      .currency-input {
+        font-size: 14px;
+        background-color: #f8f8f8;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        width: 100%;
+      }
 
       &:focus {
         outline: none; // 포커스 시 외곽선 제거
