@@ -11,6 +11,7 @@ import { en } from "../lang/en.js";
 import "../styles/_Exchanger.scss";
 import korNum from "korean-numeric";
 import LangButton from "./LangButton.js";
+import koreanNumberConvert from "../utils/koreanNumberConvert.js";
 
 function Exchanger() {
   const [selectedPrice, setSelectedPrice] = useState(0);
@@ -83,41 +84,6 @@ function Exchanger() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  function koreanNumberIndicate(num) {
-    const units = ["", "만", "억", "조", "경", "해"];
-
-    if (num === 0) return "0";
-
-    let result = "";
-    let unitIndex = 0;
-    let fractionalPart = "";
-
-    // 처리할 정수와 소수 부분 분류
-    let integerPart = Math.floor(num);
-    let decimalPart = num % 1;
-
-    while (integerPart > 0) {
-      let part = integerPart % 10000;
-      integerPart = Math.floor(integerPart / 10000);
-
-      if (part > 0) {
-        let partStr = part.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        if (unitIndex > 0) {
-          partStr += units[unitIndex];
-        }
-        result = partStr + " " + result;
-      }
-      unitIndex++;
-    }
-
-    // 소수 부분
-    if (decimalPart > 0) {
-      fractionalPart = decimalPart.toFixed(2).toString().substring(1);
-    }
-
-    return (result.trim() + fractionalPart).trim();
-  }
-
   return (
     <div className="exchanger">
       <header>{lang.header}</header>
@@ -150,7 +116,7 @@ function Exchanger() {
           <div>
             {selectedPrice === ""
               ? 0
-              : koreanNumberIndicate(korNum.tonumber(selectedPrice))}
+              : koreanNumberConvert(korNum.tonumber(selectedPrice))}
           </div>
         </div>
       </div>
@@ -182,7 +148,7 @@ function Exchanger() {
           <div>
             {toPrice === ""
               ? 0
-              : koreanNumberIndicate(korNum.tonumber(toPrice))}
+              : koreanNumberConvert(korNum.tonumber(toPrice))}
           </div>
         </div>
       </div>
