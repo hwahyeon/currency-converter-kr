@@ -1,4 +1,4 @@
-function koreanNumberConvert(num) {
+function koreanNumberConvert(num, decimalpoint = 2) {
     const units = ["", "만", "억", "조", "경", "해"];
 
     if (num === 0) return "0";
@@ -7,7 +7,7 @@ function koreanNumberConvert(num) {
     let unitIndex = 0;
     let fractionalPart = "";
 
-    // 처리할 정수와 소수 부분 분류
+    // 정수와 소수 부분 분류
     let integerPart = Math.floor(num);
     let decimalPart = num % 1;
 
@@ -27,7 +27,7 @@ function koreanNumberConvert(num) {
 
     // 소수 부분
     if (decimalPart > 0) {
-      fractionalPart = decimalPart.toFixed(2).toString().substring(1);
+      fractionalPart = decimalPart.toFixed(decimalpoint).toString().substring(1);
     }
 
     return (result.trim() + fractionalPart).trim();
