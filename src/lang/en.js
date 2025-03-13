@@ -12,6 +12,9 @@ export const en = {
     vnd: "Vietnamese Dong (VND)",
     sek: "Swedish Krona (SEK)",
     nzd: "New Zealand Dollar (NZD)",
+    pln: "Polish Zloty (PLN)",
+    czk: "Czech Koruna (CZK)",
+    dkk: "Danish Krone (DKK)",
   },
   placeholder: "Please enter the amount",
   today_price: {

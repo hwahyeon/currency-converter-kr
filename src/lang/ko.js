@@ -12,6 +12,9 @@ export const ko = {
     vnd: "베트남 동 (VND)",
     sek: "스웨덴 크로나 (SEK)",
     nzd: "뉴질랜드 달러 (NZD)",
+    pln: "폴란드 즈워티 (PLN)",
+    czk: "체코 코루나 (CZK)",
+    dkk: "덴마크 크로네 (DKK)",
   },
   placeholder: "금액을 입력해주세요",
   today_price: {

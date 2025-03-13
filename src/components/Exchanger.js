@@ -99,12 +99,12 @@ function Exchanger() {
           <option value="usd">{lang.option.usd}</option>
           <option value="jpy">{lang.option.jpy}</option>
           <option value="gbp">{lang.option.gbp}</option>
-          <option value="aud">{lang.option.aud}</option>
+          <option value="dkk">{lang.option.dkk}</option>
           <option value="cad">{lang.option.cad}</option>
           <option value="chf">{lang.option.chf}</option>
           <option value="vnd">{lang.option.vnd}</option>
-          <option value="sek">{lang.option.sek}</option>
-          <option value="nzd">{lang.option.nzd}</option>
+          <option value="czk">{lang.option.czk}</option>
+          <option value="pln">{lang.option.pln}</option>
         </select>
         <div className="exchanger__inputgroup__data">
           <input
@@ -131,12 +131,12 @@ function Exchanger() {
           <option value="usd">{lang.option.usd}</option>
           <option value="jpy">{lang.option.jpy}</option>
           <option value="gbp">{lang.option.gbp}</option>
-          <option value="aud">{lang.option.aud}</option>
+          <option value="dkk">{lang.option.dkk}</option>
           <option value="cad">{lang.option.cad}</option>
           <option value="chf">{lang.option.chf}</option>
           <option value="vnd">{lang.option.vnd}</option>
-          <option value="sek">{lang.option.sek}</option>
-          <option value="nzd">{lang.option.nzd}</option>
+          <option value="czk">{lang.option.czk}</option>
+          <option value="pln">{lang.option.pln}</option>
         </select>
         <div className="exchanger__inputgroup__data">
           <input
