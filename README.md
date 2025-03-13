@@ -24,6 +24,11 @@ Give it a shot!
 
 
 ## Release Notes
+### Version 2.3.0 (Updated on Mar 13, 2025)
+- **Favicon Added**
+- **Updated App Description**
+- **New Currencies Added**: Czech Koruna (CZK), Danish Krone (DKK), and Polish Zloty (PLN) are now supported.
+- **Removed Currencies**: Australian Dollar (AUD), New Zealand Dollar (NZD), and Swedish Krona (SEK) have been removed.
 ### Version 2.2.0 (Updated on May 31, 2024)
 - **Korean Numeral Support**:  Added support for displaying exchange rate results in Korean numeral format (10,000 units).
 ### Version 2.1.0 (Updated on Jan 27, 2024)
