@@ -86,11 +86,11 @@ function Exchanger() {
 
   return (
     <div className="exchanger">
-      <header>{lang.header}</header>
+      <header className="exchanger__header">{lang.header}</header>
       <LangButton />
-      <div className="input-group">
+      <div className="exchanger__inputgroup">
         <select
-          className="currency-select"
+          className="exchanger__inputgroup__select"
           value={selectedCurrency.value}
           onChange={handleSelectedCurrencyChange}
         >
@@ -106,9 +106,9 @@ function Exchanger() {
           <option value="sek">{lang.option.sek}</option>
           <option value="nzd">{lang.option.nzd}</option>
         </select>
-        <div className="currency-data">
+        <div className="exchanger__inputgroup__data">
           <input
-            className="currency-input"
+            className="exchanger__inputgroup__data__input"
             placeholder={lang.placeholder}
             value={selectedPrice}
             onChange={handleInputSelectedChange}
@@ -120,9 +120,9 @@ function Exchanger() {
           </div>
         </div>
       </div>
-      <div className="input-group">
+      <div className="exchanger__inputgroup">
         <select
-          className="currency-select"
+          className="exchanger__inputgroup__select"
           value={toCurrency.value}
           onChange={handleToCurrencyChange}
         >
@@ -138,9 +138,9 @@ function Exchanger() {
           <option value="sek">{lang.option.sek}</option>
           <option value="nzd">{lang.option.nzd}</option>
         </select>
-        <div className="currency-data">
+        <div className="exchanger__inputgroup__data">
           <input
-            className="currency-input"
+            className="exchanger__inputgroup__data__input"
             placeholder={lang.placeholder}
             value={toPrice}
             onChange={handleInputToChange}
@@ -151,13 +151,13 @@ function Exchanger() {
         </div>
       </div>
 
-      <div className="info">
+      <div className="exchanger__info">
         {lang.today_price.today} 1 {selectedCurrency.text}
         {lang.today_price.is} {currencyToCurrency.toFixed(3)} {toCurrency.text}
         {lang.today_price.end}.
       </div>
-      {/* <div className="result">혹시 {refine.toLocaleString()}원을 의미하셨나요?</div> */}
-      <div className="footer-info">
+
+      <div className="exchanger__footer">
         <p>{lang.info1}</p>
         <ul>
           <li>삼십만원</li>
