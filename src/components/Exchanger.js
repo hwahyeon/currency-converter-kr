@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useExchangeRate } from "../hooks/useExchangeRate";
 import { ko } from "../lang/ko.js";
 import { en } from "../lang/en.js";
-import "../styles/_Exchanger.scss";
+import "../styles/Exchanger.scss";
 import korNum from "korean-numeric";
 import LangButton from "./LangButton.js";
 import koreanNumberConvert from "../utils/koreanNumberConvert.js";

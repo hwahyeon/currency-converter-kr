@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/_LangButton.scss";
+import "../styles/LangButton.scss";
 
 function LanguageSelector() {
   const [language, setLanguage] = useState("en");
