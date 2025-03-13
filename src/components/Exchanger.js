@@ -146,9 +146,7 @@ function Exchanger() {
             onChange={handleInputToChange}
           />
           <div>
-            {toPrice === ""
-              ? 0
-              : koreanNumberConvert(korNum.tonumber(toPrice))}
+            {toPrice === "" ? 0 : koreanNumberConvert(korNum.tonumber(toPrice))}
           </div>
         </div>
       </div>

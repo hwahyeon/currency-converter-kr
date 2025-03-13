@@ -15,9 +15,9 @@ export const en = {
   },
   placeholder: "Please enter the amount",
   today_price: {
-    today:"Today,",
-    is:"is",
-    end:""
+    today: "Today,",
+    is: "is",
+    end: "",
   },
   info1:
     "Forget the days of counting units like 일, 십, 백, 천, 만...! This app supports Korean numerical notation up to 조 (trillion). For example, you can use any of the following notations:",
