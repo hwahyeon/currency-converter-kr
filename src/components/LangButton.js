@@ -16,8 +16,8 @@ function LanguageSelector() {
   };
 
   return (
-    <div className="lang--btn">
-      <button onClick={toggleLanguage}>
+    <div className="lang">
+      <button className="lang__button" onClick={toggleLanguage}>
         {language === 'en' ? '한국어' : 'English'}
       </button>
     </div>

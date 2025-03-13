@@ -1,8 +1,8 @@
-.lang--btn{
-  // display: flex;
+.lang {
   padding-bottom: 5px;
-  text-align:right;
-  button {
+  text-align: right;
+
+  &__button {
     padding: 2px;
     font-family: "Orbit";
     width: 70px;
