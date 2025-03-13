@@ -20,7 +20,7 @@ export const en = {
     end: "",
   },
   info1:
-    "Forget the days of counting units like 일, 십, 백, 천, 만...! This app supports Korean numerical notation up to 조 (trillion). For example, you can use any of the following notations:",
+    "일, 십, 백, 천, 만... I know, I know, it can be tricky to count, especially when dealing with currency. But don't worry! You can use them as they are in this app, and we support numbers up to 억. For example, you can use any of the following notations:",
   example: (
     <ul>
       <li>삼십만</li>
