@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import {
 //   totalNumberAddition,
 //   splitKoreanNumber,
@@ -20,14 +20,20 @@ function Exchanger() {
   const [language] = useState(() => localStorage.getItem("language") || "en");
   const lang = language === "ko" ? ko : en;
 
-  const [selectedCurrency, setSelectedCurrency] = useState({
-    value: "eur",
-    text: lang.option.eur,
-  });
-  const [toCurrency, setToCurrency] = useState({
-    value: "krw",
-    text: lang.option.krw,
-  });
+  const [selectedCurrency, setSelectedCurrency] = useState(
+    () => localStorage.getItem("selectedCurrency") || "eur",
+  );
+  const [toCurrency, setToCurrency] = useState(
+    () => localStorage.getItem("toCurrency") || "krw",
+  );
+
+  useEffect(() => {
+    localStorage.setItem("selectedCurrency", selectedCurrency);
+  }, [selectedCurrency]);
+
+  useEffect(() => {
+    localStorage.setItem("toCurrency", toCurrency);
+  }, [toCurrency]);
 
   const handleSelectedCurrencyChange = (e) => {
     const selectedIndex = e.target.options.selectedIndex;
@@ -50,8 +56,8 @@ function Exchanger() {
   };
 
   const { currencyToCurrency, isLoading, error } = useExchangeRate(
-    selectedCurrency.value,
-    toCurrency.value,
+    selectedCurrency,
+    toCurrency,
   );
 
   const handleInputSelectedChange = (e) => {
@@ -105,8 +111,12 @@ function Exchanger() {
       <div className="exchanger__inputgroup">
         <select
           className="exchanger__inputgroup__select"
-          value={selectedCurrency.value}
-          onChange={handleSelectedCurrencyChange}
+          value={selectedCurrency}
+          onChange={(e) => {
+            setSelectedCurrency(e.target.value);
+            setSelectedPrice(0);
+            setToPrice(0);
+          }}
         >
           {currencyOptions.map((currency) => (
             <option key={currency} value={currency}>
@@ -131,8 +141,12 @@ function Exchanger() {
       <div className="exchanger__inputgroup">
         <select
           className="exchanger__inputgroup__select"
-          value={toCurrency.value}
-          onChange={handleToCurrencyChange}
+          value={toCurrency}
+          onChange={(e) => {
+            setToCurrency(e.target.value);
+            setSelectedPrice(0);
+            setToPrice(0);
+          }}
         >
           {currencyOptions.map((currency) => (
             <option key={currency} value={currency}>
