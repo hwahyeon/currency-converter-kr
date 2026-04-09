@@ -51,7 +51,7 @@ function Exchanger() {
 
   const { currencyToCurrency, isLoading, error } = useExchangeRate(
     selectedCurrency.value,
-    toCurrency.value
+    toCurrency.value,
   );
 
   const handleInputSelectedChange = (e) => {
@@ -59,8 +59,8 @@ function Exchanger() {
     setSelectedPrice(v);
     setToPrice(
       Number(
-        (korNum.tonumber(v) * currencyToCurrency).toFixed(2)
-      ).toLocaleString()
+        (korNum.tonumber(v) * currencyToCurrency).toFixed(2),
+      ).toLocaleString(),
     );
   };
 
@@ -69,8 +69,8 @@ function Exchanger() {
     setToPrice(v);
     setSelectedPrice(
       Number(
-        ((1 / currencyToCurrency) * korNum.tonumber(v)).toFixed(2)
-      ).toLocaleString()
+        ((1 / currencyToCurrency) * korNum.tonumber(v)).toFixed(2),
+      ).toLocaleString(),
     );
   };
 
