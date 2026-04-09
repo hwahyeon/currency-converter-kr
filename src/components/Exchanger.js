@@ -1,10 +1,4 @@
 import { useEffect, useState } from "react";
-// import {
-//   totalNumberAddition,
-//   splitKoreanNumber,
-//   replaceKoreanNumbers,
-//   removeNonNumericWords,
-// } from "../utils/numberUtils";
 import { useExchangeRate } from "../hooks/useExchangeRate";
 import { ko } from "../lang/ko.js";
 import { en } from "../lang/en.js";
@@ -34,26 +28,6 @@ function Exchanger() {
   useEffect(() => {
     localStorage.setItem("toCurrency", toCurrency);
   }, [toCurrency]);
-
-  const handleSelectedCurrencyChange = (e) => {
-    const selectedIndex = e.target.options.selectedIndex;
-    setSelectedCurrency({
-      value: e.target.value,
-      text: e.target.options[selectedIndex].text,
-    });
-    setSelectedPrice(0);
-    setToPrice(0);
-  };
-
-  const handleToCurrencyChange = (e) => {
-    const selectedIndex = e.target.options.selectedIndex;
-    setToCurrency({
-      value: e.target.value,
-      text: e.target.options[selectedIndex].text,
-    });
-    setSelectedPrice(0);
-    setToPrice(0);
-  };
 
   const { currencyToCurrency, isLoading, error } = useExchangeRate(
     selectedCurrency,
