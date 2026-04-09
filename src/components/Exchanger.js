@@ -17,8 +17,8 @@ function Exchanger() {
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [toPrice, setToPrice] = useState(0);
 
-  const currentLanguage = localStorage.getItem("language");
-  const lang = currentLanguage === "ko" ? ko : en;
+  const [language] = useState(() => localStorage.getItem("language") || "en");
+  const lang = language === "ko" ? ko : en;
 
   const [selectedCurrency, setSelectedCurrency] = useState({
     value: "eur",
