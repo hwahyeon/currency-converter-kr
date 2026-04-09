@@ -24,6 +24,9 @@ Give it a shot!
 
 
 ## Release Notes
+### Version 2.4.0 (Updated on Apr 9, 2026)
+- **Improved Currency Switching**: Values are now preserved when changing currencies and conversions update automatically.
+- **Remember Last Used Currencies**: Selected currencies are now saved and restored automatically on your next visit.
 ### Version 2.3.0 (Updated on Mar 13, 2025)
 - **Favicon Added**
 - **Updated App Description**
