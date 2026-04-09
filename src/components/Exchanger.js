@@ -74,6 +74,20 @@ function Exchanger() {
     );
   };
 
+  const currencyOptions = [
+    "krw",
+    "eur",
+    "usd",
+    "jpy",
+    "gbp",
+    "dkk",
+    "cad",
+    "chf",
+    "vnd",
+    "czk",
+    "pln",
+  ];
+
   function koreanNumer(e) {
     if (e === null) {
       return 0;
@@ -94,17 +108,11 @@ function Exchanger() {
           value={selectedCurrency.value}
           onChange={handleSelectedCurrencyChange}
         >
-          <option value="krw">{lang.option.krw}</option>
-          <option value="eur">{lang.option.eur}</option>
-          <option value="usd">{lang.option.usd}</option>
-          <option value="jpy">{lang.option.jpy}</option>
-          <option value="gbp">{lang.option.gbp}</option>
-          <option value="dkk">{lang.option.dkk}</option>
-          <option value="cad">{lang.option.cad}</option>
-          <option value="chf">{lang.option.chf}</option>
-          <option value="vnd">{lang.option.vnd}</option>
-          <option value="czk">{lang.option.czk}</option>
-          <option value="pln">{lang.option.pln}</option>
+          {currencyOptions.map((currency) => (
+            <option key={currency} value={currency}>
+              {lang.option[currency]}
+            </option>
+          ))}
         </select>
         <div className="exchanger__inputgroup__data">
           <input
@@ -126,17 +134,11 @@ function Exchanger() {
           value={toCurrency.value}
           onChange={handleToCurrencyChange}
         >
-          <option value="krw">{lang.option.krw}</option>
-          <option value="eur">{lang.option.eur}</option>
-          <option value="usd">{lang.option.usd}</option>
-          <option value="jpy">{lang.option.jpy}</option>
-          <option value="gbp">{lang.option.gbp}</option>
-          <option value="dkk">{lang.option.dkk}</option>
-          <option value="cad">{lang.option.cad}</option>
-          <option value="chf">{lang.option.chf}</option>
-          <option value="vnd">{lang.option.vnd}</option>
-          <option value="czk">{lang.option.czk}</option>
-          <option value="pln">{lang.option.pln}</option>
+          {currencyOptions.map((currency) => (
+            <option key={currency} value={currency}>
+              {lang.option[currency]}
+            </option>
+          ))}
         </select>
         <div className="exchanger__inputgroup__data">
           <input
