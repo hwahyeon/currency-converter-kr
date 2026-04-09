@@ -60,6 +60,16 @@ function Exchanger() {
     toCurrency,
   );
 
+  useEffect(() => {
+    if (!selectedPrice) return;
+
+    setToPrice(
+      Number(
+        (korNum.tonumber(selectedPrice) * currencyToCurrency).toFixed(2),
+      ).toLocaleString(),
+    );
+  }, [currencyToCurrency, selectedPrice]);
+
   const handleInputSelectedChange = (e) => {
     const v = koreanNumer(e.target.value);
     setSelectedPrice(v);
@@ -114,8 +124,6 @@ function Exchanger() {
           value={selectedCurrency}
           onChange={(e) => {
             setSelectedCurrency(e.target.value);
-            setSelectedPrice(0);
-            setToPrice(0);
           }}
         >
           {currencyOptions.map((currency) => (
@@ -144,8 +152,6 @@ function Exchanger() {
           value={toCurrency}
           onChange={(e) => {
             setToCurrency(e.target.value);
-            setSelectedPrice(0);
-            setToPrice(0);
           }}
         >
           {currencyOptions.map((currency) => (
