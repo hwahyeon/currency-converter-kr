@@ -161,8 +161,8 @@ function Exchanger() {
       </div>
 
       <div className="exchanger__info">
-        {lang.today_price.today} 1 {selectedCurrency.text}
-        {lang.today_price.is} {currencyToCurrency.toFixed(3)} {toCurrency.text}
+        {lang.today_price.today} 1 {lang.option[selectedCurrency]}
+        {lang.today_price.is} {currencyToCurrency.toFixed(3)} {lang.option[toCurrency]}
         {lang.today_price.end}.
       </div>
 
