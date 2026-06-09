@@ -34,18 +34,27 @@ function Exchanger() {
     toCurrency,
   );
 
-  useEffect(() => {
-    if (!selectedPrice) return;
+  const [lastEdited, setLastEdited] = useState("selected");
 
-    setToPrice(
-      Number(
-        (korNum.tonumber(selectedPrice) * currencyToCurrency).toFixed(2),
-      ).toLocaleString(),
-    );
-  }, [currencyToCurrency, selectedPrice]);
+  useEffect(() => {
+    if (lastEdited === "selected" && selectedPrice) {
+      setToPrice(
+        Number(
+          (korNum.tonumber(selectedPrice) * currencyToCurrency).toFixed(2),
+        ).toLocaleString(),
+      );
+    } else if (lastEdited === "to" && toPrice) {
+      setSelectedPrice(
+        Number(
+          ((1 / currencyToCurrency) * korNum.tonumber(toPrice)).toFixed(2),
+        ).toLocaleString(),
+      );
+    }
+  }, [currencyToCurrency]);
 
   const handleInputSelectedChange = (e) => {
     const v = koreanNumer(e.target.value);
+    setLastEdited("selected");
     setSelectedPrice(v);
     setToPrice(
       Number(
@@ -56,6 +65,7 @@ function Exchanger() {
 
   const handleInputToChange = (e) => {
     const v = koreanNumer(e.target.value);
+    setLastEdited("to");
     setToPrice(v);
     setSelectedPrice(
       Number(
