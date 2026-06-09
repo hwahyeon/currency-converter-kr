@@ -71,11 +71,14 @@ function Exchanger() {
     "jpy",
     "gbp",
     "dkk",
-    "cad",
     "chf",
     "vnd",
     "czk",
     "pln",
+    "sek",
+    "sgd",
+    "myr",
+    "idr",
   ];
 
   function koreanNumer(e) {
