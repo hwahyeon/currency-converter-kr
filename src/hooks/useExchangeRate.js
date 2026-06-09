@@ -22,8 +22,9 @@ export function useExchangeRate(selectedCurrency, toCurrency) {
     };
 
     setIsLoading(true);
-    fetchExchangeRate(selectedCurrency, toCurrency, setCurrencyToCurrency);
-    setIsLoading(false);
+    fetchExchangeRate(selectedCurrency, toCurrency, setCurrencyToCurrency).then(() => {
+      setIsLoading(false);
+    });
   }, [selectedCurrency, toCurrency]);
 
   return { currencyToCurrency, isLoading, error };
