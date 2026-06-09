@@ -53,7 +53,7 @@ function Exchanger() {
   }, [currencyToCurrency]);
 
   const handleInputSelectedChange = (e) => {
-    const v = koreanNumer(e.target.value);
+    const v = e.target.value;
     setLastEdited("selected");
     setSelectedPrice(v);
     setToPrice(
@@ -64,7 +64,7 @@ function Exchanger() {
   };
 
   const handleInputToChange = (e) => {
-    const v = koreanNumer(e.target.value);
+    const v = e.target.value;
     setLastEdited("to");
     setToPrice(v);
     setSelectedPrice(
@@ -91,14 +91,7 @@ function Exchanger() {
     "idr",
   ];
 
-  function koreanNumer(e) {
-    if (e === null) {
-      return 0;
-    }
-    return e;
-  }
-
-  if (isLoading) return <div>Loading...</div>;
+if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
