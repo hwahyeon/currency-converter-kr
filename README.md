@@ -24,6 +24,11 @@ Give it a shot!
 
 
 ## Release Notes
+### Version 2.5.0 (Updated on Jun 10, 2026)
+- **Added Currencies**: Swedish Krona (SEK), Singapore Dollar (SGD), Malaysian Ringgit (MYR), and Indonesian Rupiah (IDR) are now available.
+- **Removed Currencies**: Canadian Dollar (CAD) has been removed.
+- **Fixed Dual Input**: Typing in either input field now correctly updates the other in real time.
+- **Fixed Currency Info Display**: Currency names now display correctly in the exchange rate info section.
 ### Version 2.4.0 (Updated on Apr 9, 2026)
 - **Improved Currency Switching**: Values are now preserved when changing currencies and conversions update automatically.
 - **Remember Last Used Currencies**: Selected currencies are now saved and restored automatically on your next visit.
