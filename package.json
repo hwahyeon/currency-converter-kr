@@ -1,6 +1,6 @@
 {
   "name": "currency-converter-kr",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "private": true,
   "dependencies": {
     "korean-numeric": "^1.1.4",
