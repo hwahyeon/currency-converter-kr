@@ -30,7 +30,7 @@ function koreanNumberConvert(num, decimalpoint = 2) {
     fractionalPart = decimalPart.toFixed(decimalpoint).toString().substring(1);
   }
 
-  return (result.trim() + fractionalPart).trim();
+  return (result.trim() || (fractionalPart ? "0" : "")) + fractionalPart;
 }
 
 export default koreanNumberConvert;
