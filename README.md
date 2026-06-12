@@ -24,6 +24,8 @@ Give it a shot!
 
 
 ## Release Notes
+### Version 2.5.1 (Updated on Jun 12, 2026)
+- **Bug Fix**: Fixed an issue where decimal-only numbers (e.g. 0.1) were displayed without a leading zero.
 ### Version 2.5.0 (Updated on Jun 10, 2026)
 - **Added Currencies**: Swedish Krona (SEK), Singapore Dollar (SGD), Malaysian Ringgit (MYR), and Indonesian Rupiah (IDR) are now available.
 - **Removed Currencies**: Canadian Dollar (CAD) has been removed.
